@@ -1,0 +1,44 @@
+!!! 5
+%head
+
+  %title= yield(:title)
+  %link{ :rel => 'author', :href => 'humans.txt' }
+  %meta{ :name => 'viewport', :content => 'width=device-width, initial-scale=1, maximum-scale=1' }
+
+  - # Makes app "chrome-less" once bookmarked to home screen
+  %meta{ :name => 'apple-mobile-web-app-capable', :content => 'yes' }
+  %meta{ :name => 'apple-mobile-web-app-status-bar-style', :content => 'black' }
+
+  - # Set Apple icons for when app is saved to home screen
+  %link{ :rel => 'apple-touch-icon-precomposed', :sizes => '114x114', :href => 'assets/touch-icons/apple-touch-icon-114x114.png' }
+  %link{ :rel => 'apple-touch-icon-precomposed', :sizes => '72x72', :href => 'assets/touch-icons/apple-touch-icon-72x72.png' }
+  %link{ :rel => 'apple-touch-icon-precomposed', :sizes => '57x57', :href => 'assets/touch-icons/apple-touch-icon-57x57.png' }
+
+
+  = favicon_link_tag 'favicon.png'
+
+  = stylesheet_link_tag 'application'
+
+  - # jQuery — Google Ajax API CDN Hosted
+  = javascript_include_tag 'https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js'
+
+  - # GAS — Google Analytics on Steroids (https://github.com/CardinalPath/gas)
+  - if Rails.env.production?
+    :javascript
+      var _gas = _gas || [];
+      _gas.push(['_setAccount', 'XX-XXXXXXXX-X']);
+      _gas.push(['_setDomainName', 'domain.com']);
+      _gas.push(['_trackPageview']);
+      _gas.push(['_gasTrackForms']);
+      _gas.push(['_gasTrackOutboundLinks']);
+      _gas.push(['_gasTrackMaxScroll']);
+      _gas.push(['_gasTrackMailto']);
+
+      (function() {
+      var ga = document.createElement('script');
+      ga.type = 'text/javascript';
+      ga.async = true;
+      ga.src = '//cdnjs.cloudflare.com/ajax/libs/gas/1.10.1/gas.min.js';
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(ga, s);
+      })();

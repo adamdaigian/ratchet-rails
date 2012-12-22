@@ -1,0 +1,12 @@
+= render 'layouts/head'
+
+%body{ :class => controller_name, :id => action_name }
+
+  %header
+    
+  %section
+    = yield
+
+  = render 'layouts/footer'
+
+= yield :javascripts
