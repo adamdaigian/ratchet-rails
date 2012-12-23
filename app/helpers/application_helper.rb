@@ -81,4 +81,30 @@ module ApplicationHelper
     item = link_to entity, ''
     content_tag :li, item, :class => css
   end
+
+  # Accepts different count - :one, :two, :three
+  def slider(count)
+    case count
+    when :one
+      image_1 = content_tag :img, nil, :src => "assets/slide-1.jpg"
+      items =
+        (content_tag :li, image_1)
+    when :two
+      image_1 = content_tag :img, nil, :src => "assets/slide-1.jpg"
+      image_2 = content_tag :img, nil, :src => "assets/slide-2.jpg"
+      items =
+        (content_tag :li, image_1) +
+        (content_tag :li, image_2)
+    when :three
+      image_1 = content_tag :img, nil, :src => "assets/slide-1.jpg"
+      image_2 = content_tag :img, nil, :src => "assets/slide-2.jpg"
+      image_3 = content_tag :img, nil, :src => "assets/slide-3.jpg"
+      items =
+        (content_tag :li, image_1) +
+        (content_tag :li, image_2) +
+        (content_tag :li, image_3)
+    end
+    list = content_tag :ul, items
+    content_tag :div, list, :class => 'slider'
+  end
 end
