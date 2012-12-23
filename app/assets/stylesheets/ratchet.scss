@@ -1,100 +1,25 @@
-/**
- * ==================================
- * Ratchet v1.0.0
- * Licensed under The MIT License
- * http://opensource.org/licenses/MIT
- * ==================================
- */
+/*
+* ==================================
+* Ratchet v1.0.0
+* Licensed under The MIT License
+* http://opensource.org/licenses/MIT
+* ==================================
+*/
 
-/* Hard reset
--------------------------------------------------- */
-
-html,
-body,
-div,
-span,
-iframe,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p,
-blockquote,
-pre,
-a,
-abbr,
-acronym,
-address,
-big,
-cite,
-code,
-del,
-dfn,
-em,
-img,
-ins,
-kbd,
-q,
-s,
-samp,
-small,
-strike,
-strong,
-sub,
-sup,
-tt,
-var,
-b,
-u,
-i,
-center,
-dl,
-dt,
-dd,
-ol,
-ul,
-li,
-fieldset,
-form,
-label,
-legend,
-table,
-caption,
-tbody,
-tfoot,
-thead,
-tr,
-th,
-td,
-article,
-aside,
-canvas,
-details,
-embed,
-figure,
-figcaption,
-footer,
-header,
-hgroup,
-menu,
-nav,
-output,
-section,
-summary,
-time,
-audio,
-video {
-  padding: 0;
-  margin: 0;
-  border: 0;
-}
+@import 'reset';
 
 /* Prevents iOS text size adjust after orientation change, without disabling (Thanks to @necolas) */
 html {
   -webkit-text-size-adjust: 100%;
       -ms-text-size-adjust: 100%;
+}
+
+/* Mixins
+-------------------------------------------------- */
+@mixin gradient($primary_hex, $secondary_hex) {
+  background-color: $primary_hex;
+  background-image: -webkit-linear-gradient(top, $primary_hex 0, $secondary_hex 100%);
+  background-image: linear-gradient(to bottom, $primary_hex 0, $secondary_hex 100%);
 }
 
 /* Base styles
@@ -158,7 +83,9 @@ a {
 }
 .bar-header-secondary ~ .content {
   top: 88px;
-}/* General bar styles
+}
+
+/* General bar styles
 -------------------------------------------------- */
 
 [class*="bar-"] {
@@ -183,9 +110,7 @@ a {
 
 /* Generic bar for wrapping buttons, segmented controllers, etc. */
 .bar-standard {
-  background-color: #f2f2f2;
-  background-image: -webkit-linear-gradient(top, #f2f2f2 0, #e5e5e5 100%);
-  background-image: linear-gradient(to bottom, #f2f2f2 0, #e5e5e5 100%);
+  @include gradient(#f2f2f2, #e5e5e5);
   border-bottom: 1px solid #aaa;
   box-shadow: inset 0 1px 1px -1px #fff;
 }
@@ -205,9 +130,7 @@ a {
   top: 0;
   display: -webkit-box;
   display: box;
-  background-color: #1eb0e9;
-  background-image: -webkit-linear-gradient(top, #1eb0e9 0, #109adc 100%);
-  background-image: linear-gradient(to bottom, #1eb0e9 0, #109adc 100%);
+  @include gradient(#1eb0e9, #109adc);
   border-bottom: 1px solid #0e5895;
   box-shadow: inset 0 1px 1px -1px rgba(255, 255, 255, .8);
   -webkit-box-orient: horizontal;
@@ -249,9 +172,7 @@ a {
   bottom: 0;
   height: 50px;
   padding: 0;
-  background-color: #393939;
-  background-image: -webkit-linear-gradient(top, #393939 0, #2b2b2b 100%);
-  background-image: linear-gradient(to bottom, #393939 0, #2b2b2b 100%);
+  @include gradient(#393939, #2b2b2b);
   border-top: 1px solid #000;
   border-bottom-width: 0;
   box-shadow: inset 0 1px 1px -1px rgba(255, 255, 255, .6);
@@ -312,9 +233,7 @@ a {
   line-height: 23px;
   color: #fff;
   text-shadow: 0 -1px 0 rgba(0, 0, 0, .3);
-  background-color: #1eb0e9;
-  background-image: -webkit-linear-gradient(top, #1eb0e9 0, #0984c6 100%);
-  background-image: linear-gradient(to bottom, #1eb0e9 0, #0984c6 100%);
+  @include gradient(#1eb0e9, #0984c6);
   border: 1px solid #0e5895;
   box-shadow: 0 1px rgba(255, 255, 255, .25);
   -webkit-box-flex: 0;
@@ -446,9 +365,7 @@ a {
 .bar-title .segmented-controller {
   line-height: 18px;
   text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.3);
-  background-color: #1eb0e9;
-  background-image: -webkit-linear-gradient(top, #1eb0e9 0, #0984c6 100%);
-  background-image: linear-gradient(to bottom, #1eb0e9 0, #0984c6 100%);
+  @include gradient(#1eb0e9, #0984c6);
   border: 1px solid #0e5895;
   border-radius: 3px;
   box-shadow: 0 1px rgba(255, 255, 255, .25);
@@ -492,7 +409,9 @@ a {
 .bar-standard input[type=search] {
   height: 32px;
   margin: 0;
-}/* Lists
+}
+
+/* Lists
 -------------------------------------------------- */
 
 /* Remove usual bullet styles from list */
@@ -556,9 +475,7 @@ a {
   font-weight: bold;
   line-height: 18px;
   text-shadow: 0 1px 0 rgba(255, 255, 255, .5);
-  background-color: #f8f8f8;
-  background-image: -webkit-linear-gradient(top, #f8f8f8 0, #eee 100%);
-  background-image: linear-gradient(to bottom, #f8f8f8 0, #eee 100%);
+  @include gradient(#f8f8f8, #eee);
   border-top: 1px solid rgba(0, 0, 0, .1);
   border-bottom: 1px solid rgba(0, 0, 0, .1);
   box-shadow: inset 0 1px 1px rgba(255, 255, 255, .4);
@@ -606,7 +523,9 @@ a {
 
 .list .toggle {
   margin-top: -15px; /* Half height of toggle */
-}/* Forms
+}
+
+/* Forms
 -------------------------------------------------- */
 
 /* Force form elements to inherit font styles */
@@ -664,9 +583,7 @@ textarea {
 select {
   height: auto;
   font-size: 14px;
-  background-color: #f8f8f8;
-  background-image: -webkit-linear-gradient(top, #f8f8f8 0%, #d4d4d4 100%);
-  background-image: linear-gradient(to bottom, #f8f8f8 0%, #d4d4d4 100%);
+  @include gradient(#f8f8f8, #d4d4d4);
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, .1);
 }
 
@@ -725,7 +642,9 @@ select {
   padding-left: 0;
   margin-bottom: 0;
   border-bottom: 0;
-}/* General button styles
+}
+
+/* General button styles
 -------------------------------------------------- */
 
 [class*="button"] {
@@ -740,9 +659,7 @@ select {
   text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
   vertical-align: top;
   cursor: pointer;
-  background-color: #f8f8f8;
-  background-image: -webkit-linear-gradient(top, #f8f8f8 0, #d4d4d4 100%);
-  background-image: linear-gradient(to bottom, #f8f8f8 0, #d4d4d4 100%);
+  @include gradient(#f8f8f8, #d4d4d4);
   border: 1px solid rgba(0, 0, 0, .3);
   border-radius: 3px;
   box-shadow: inset 0 1px 1px rgba(255, 255, 255, .4), 0 1px 2px rgba(0, 0, 0, .05);
@@ -771,25 +688,19 @@ select {
 
 /* Main button */
 .button-main {
-  background-color: #1eafe7;
-  background-image: -webkit-linear-gradient(top, #1eafe7 0, #1a97c8 100%);
-  background-image: linear-gradient(to bottom, #1eafe7 0, #1a97c8 100%);
+  @include gradient(#1eafe7, #1a97c8);
   border: 1px solid #117aaa;
 }
 
 /* Positive button  */
 .button-positive {
-  background-color: #34ba15;
-  background-image: -webkit-linear-gradient(top, #34ba15 0, #2da012 100%);
-  background-image: linear-gradient(to bottom, #34ba15 0, #2da012 100%);
+  @include gradient(#34ba15, #2da012);
   border: 1px solid #278f0f;
 }
 
 /* Negative button  */
 .button-negative {
-  background-color: #e71e1e;
-  background-image: -webkit-linear-gradient(top, #e71e1e 0,#c71a1a 100%);
-  background-image: linear-gradient(to bottom, #e71e1e 0, #c71a1a 100%);
+  @include gradient(#e71e1e, #c71a1a);
   border: 1px solid #b51a1a;
 }
 
@@ -845,7 +756,9 @@ select {
   padding-top: 4px;
   padding-bottom: 4px;
   margin-right: 10px;
-}/* Chevrons
+}
+
+/* Chevrons
 -------------------------------------------------- */
 
 .chevron {
@@ -874,7 +787,9 @@ select {
   top: 7px;
   -webkit-transform: rotate(-45deg);
           transform: rotate(-45deg);
-}/* General count styles
+}
+
+/* General count styles
 -------------------------------------------------- */
 
 [class*="count"] {
@@ -901,24 +816,20 @@ select {
 
 /* Main count  */
 .count-main {
-  background-color: #1eafe7;
-  background-image: -webkit-linear-gradient(top, #1eafe7 0, #1a97c8 100%);
-  background-image: linear-gradient(to bottom, #1eafe7 0, #1a97c8 100%);
+  @include gradient(#1eafe7, #1a97c8);
 }
 
 /* Positive count  */
 .count-positive {
-  background-color: #34ba15;
-  background-image: -webkit-linear-gradient(top, #34ba15 0, #2da012 100%);
-  background-image: linear-gradient(to bottom, #34ba15 0, #2da012 100%);
+  @include gradient(#34ba15, #2da012);
 }
 
 /* Negative count  */
 .count-negative {
-  background-color: #e71e1e;
-  background-image: -webkit-linear-gradient(top, #e71e1e 0,#c71a1a 100%);
-  background-image: linear-gradient(to bottom, #e71e1e 0, #c71a1a 100%);
-}/* Segmented controllers
+  @include gradient(#e71e1e, #c71a1a);
+}
+
+/* Segmented controllers
 -------------------------------------------------- */
 
 .segmented-controller {
@@ -930,9 +841,7 @@ select {
   font-weight: bold;
   text-shadow: 0 1px rgba(255, 255, 255, .5);
   list-style: none;
-  background-color: #f8f8f8;
-  background-image: -webkit-linear-gradient(top, #f8f8f8 0, #d4d4d4 100%);
-  background-image: linear-gradient(to bottom, #f8f8f8 0, #d4d4d4 100%);
+  @include gradient(#f8f8f8, #d4d4d4);
   border: 1px solid #aaa;
   border-radius: 3px;
   box-shadow: inset 0 1px rgba(255, 255, 255, 0.5), 0 1px rgba(255, 255, 255, .8);
@@ -979,7 +888,9 @@ select {
 
 .segmented-controller-item.active {
   display: block;
-}/* Popovers (to be used with popovers.js)
+}
+
+/* Popovers (to be used with popovers.js)
 -------------------------------------------------- */
 
 .popover {
@@ -1058,9 +969,7 @@ select {
   line-height: 22px;
   color: #fff;
   text-shadow: 0 -1px 0 rgba(0, 0, 0, .3);
-  background-color: #454545;
-  background-image: -webkit-linear-gradient(top, #454545 0, #353535 100%);
-  background-image: linear-gradient(to bottom, #454545 0, #353535 100%);
+  @include gradient(#454545, #353535);
   border: 1px solid #111;
   -webkit-box-flex: 0;
           box-flex: 0;
@@ -1200,9 +1109,7 @@ select {
   z-index: 2;
   width: 28px;
   height: 28px;
-  background-color: #fff;
-  background-image: -webkit-linear-gradient(top, #fff 0, #f2f2f2 100%);
-  background-image: linear-gradient(to bottom, #fff 0, #f2f2f2 100%);
+  @include gradient(#fff, #f2f2f2);
   border: 1px solid rgba(0, 0, 0, .2);
   border-radius: 100px;
   -webkit-transition: -webkit-transform 0.1s ease-in-out, border 0.1s ease-in-out;
