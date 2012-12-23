@@ -1,3 +1,9 @@
 - title(t 'name')
 
-%p Hello, world!
+= render 'title_bar'
+
+- # Scrollable HTML content
+%div.content
+  %div.content-padded
+
+= render 'tab_bar'

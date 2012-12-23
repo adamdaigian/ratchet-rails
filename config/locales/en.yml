@@ -1,3 +1,8 @@
 # ratchet-rails localization file for English.
 en:
   name: "ratchet-rails"
+  home:
+    title_bar:
+      name: "ratchet-rails"
+      left: "Left"
+      right: "Right"
