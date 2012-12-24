@@ -4,7 +4,8 @@ en:
   home:
     intro_1: "Build mobile app prototypes with <a href=%{link}>Ratchet</a> + Ruby on Rails."
     intro_2: "<a href=%{link_1}>HAML</a> Templates, <a href=%{link_2}>SCSS</a> Syntax (with helpful mixins), UI Component Helper Methods."
-    tour_btn: "Take A Tour"
+    ratchet_btn: "Play With It"
+    github_btn: "Download on Github"
   ratchet:
     title_bar:
       name: "ratchet-rails"

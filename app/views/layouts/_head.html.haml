@@ -20,7 +20,9 @@
 
   = stylesheet_link_tag 'application', 'home', 'ratchet'
 
-  = javascript_include_tag 'ratchet.js'
+  - # Scope ratchet.js to it's own domain
+  - if controller_name == 'ratchet'
+    = javascript_include_tag 'ratchet.js'
 
   - # jQuery — Google Ajax API CDN Hosted
   = javascript_include_tag 'https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js'

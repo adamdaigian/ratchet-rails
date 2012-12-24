@@ -1,10 +1,10 @@
 - title(t 'name')
 
-= render 'title_bar'
+= render 'title_bar', :locals => { :visibility => :show }
 
 - # Scrollable HTML content
 %div.content
-  = render 'slider'
+  = render 'slider', :locals => { :visibility => :show }
   %div.content-padded
 
-= render 'tab_bar'
+= render 'tab_bar', :locals => { :visibility => :show }

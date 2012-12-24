@@ -1,8 +1,8 @@
 - # Component: Tab bar
-%nav.bar-tab
+%nav.bar-tab{ :class => ('hide' if locals[:visibility] == :hide) }
   %ul.tab-inner
-    = tab_bar_item(:home, :active)
-    = tab_bar_item(:profile)
-    = tab_bar_item(:messages)
-    = tab_bar_item(:hamburger)
-    = tab_bar_item(:settings)
+    = tab_bar_item(:home, { :visibility => :show, :active => :active })
+    = tab_bar_item(:profile, { :visibility => :show })
+    = tab_bar_item(:messages, { :visibility => :show })
+    = tab_bar_item(:hamburger, { :visibility => :show })
+    = tab_bar_item(:settings, { :visibility => :show })

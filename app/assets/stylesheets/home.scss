@@ -1,6 +1,5 @@
 /* Variables */
 
-$header-color: #ff7243; // orange
 $base-font: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 
 /* Mixins */
@@ -62,7 +61,7 @@ body.home {
 
   header {
     margin: 0 auto 4em;
-    background: $header-color;
+    @include gradient(#393939, #2b2b2b);
     padding: 140px 0;
   }
 
@@ -116,6 +115,8 @@ body.home {
   }
 
   /* Buttons */
+
+  form { display: inline-block; }
 
   input[type="submit"] {
     -webkit-box-sizing: border-box;
@@ -179,6 +180,9 @@ body.home {
       background-image: url(../assets/logo-narrow.png);
       background-size: 242px 66px;
     }
+
+    form { display: block; }
+    #play { margin-bottom: 5px; }
 
     input[type="submit"] {
       width: 100%;

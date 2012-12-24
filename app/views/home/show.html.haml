@@ -4,6 +4,7 @@
 %p= raw(t 'home.intro_2', :link_1 => 'http://haml.info', :link_2 => 'http://sass-lang.com')
 
 = form_tag(ratchet_path) do
-  %input{ :type => 'submit', :value => 'Play With It' }
+  #play= submit_tag(t 'home.ratchet_btn')
 
-/ = github_btn(:watch)
+= form_tag("https://github.com/hopkinschris/ratchet-rails.git") do
+  = submit_tag(t 'home.github_btn')
