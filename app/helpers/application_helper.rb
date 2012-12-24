@@ -4,6 +4,25 @@ module ApplicationHelper
     content_for(:title) { page_title }
   end
 
+  # Accepts three different types of buttons
+  # :watch, :fork or :follow
+  # Accepts two options:
+  #   * 'count', none by default or true
+  #   * 'size',  none by default or large
+  def github_btn(type, options = {})
+    username = 'hopkinschris'
+    reponame = 'ratchet-rails'
+    buttontype = type.to_s
+    if options == :none
+      src = "http://ghbtns.com/github-btn.html?user=#{username}&repo=#{reponame}&type=#{buttontype}&count=false"
+    elsif options == :large
+      src = "http://ghbtns.com/github-btn.html?user=#{username}&repo=#{reponame}&type=#{buttontype}&size=large"
+    else
+      src = "http://ghbtns.com/github-btn.html?user=#{username}&repo=#{reponame}&type=#{buttontype}"
+    end
+    tag :iframe, :src => src, 'allowtransparency' => 'true', 'frameborder' => '0', 'scrolling' => '0', 'width' => '62', 'height' => '20'
+  end
+
   # Accepts various types of title bar styles
   # :normal - full width and docked to the top of the viewport
   # :with_button - left or right aligned buttons (should be used for actions)

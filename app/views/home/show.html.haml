@@ -1,10 +1,9 @@
 - title(t 'name')
 
-= render 'title_bar'
+%p= raw(t 'home.intro_1', :link => 'https://github.com/maker/ratchet')
+%p= raw(t 'home.intro_2', :link_1 => 'http://haml.info', :link_2 => 'http://sass-lang.com')
 
-- # Scrollable HTML content
-%div.content
-  = render 'slider'
-  %div.content-padded
+= form_tag(ratchet_path) do
+  %input{ :type => 'submit', :value => 'Play With It' }
 
-= render 'tab_bar'
+/ = github_btn(:watch)

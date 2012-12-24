@@ -1,0 +1,204 @@
+/* Variables */
+
+$header-color: #ff7243; // orange
+$base-font: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+
+/* Mixins */
+
+@mixin smooth-fonts {
+  -webkit-font-smoothing: antialiased;
+     -moz-font-smoothing: antialiased;
+      -ms-font-smoothing: antialiased;
+       -o-font-smoothing: antialiased;
+          font-smoothing: antialiased;
+}
+
+@mixin border-radius($val) {
+  -webkit-border-radius: $val;
+     -moz-border-radius: $val;
+      -ms-border-radius: $val;
+       -o-border-radius: $val;
+          border-radius: $val;
+}
+
+@mixin gradient($color1, $color2) {
+  background-color: $color1;
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, $color1), color-stop(100%, $color2));
+  background-image: -webkit-linear-gradient(top, $color1, $color2);
+  background-image: -moz-linear-gradient(top, $color1, $color2);
+  background-image: -ms-linear-gradient(top, $color1, $color2);
+  background-image: -o-linear-gradient(top, $color1, $color2);
+  background-image: linear-gradient(top, $color1, $color2);
+}
+
+// [Nicolas Gallagher](http://nicolasgallagher.com/micro-clearfix-hack/)
+@mixin clearfix {
+  zoom: 1;
+  &:before,
+  &:after {
+    content: " ";
+    display: table;
+  }
+  &:after {
+    clear: both;
+  }
+}
+
+/* General */
+
+body.home {
+  color: #444;
+  font-family: $base-font;
+  font-weight: 300;
+  @include smooth-fonts;
+
+  header, section, footer {
+    padding: 0 10px;
+    margin: 0 auto;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+
+  header {
+    margin: 0 auto 4em;
+    background: $header-color;
+    padding: 140px 0;
+  }
+
+  section, footer {
+    padding: 0 10px;
+    max-width: 640px;
+    margin-bottom: 2em;
+  }
+
+  a {
+    color: #0881b3;
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    &:hover {
+      border-bottom: 1px solid;
+    }
+  }
+
+  p {
+    margin: 0 0 1em;
+    line-height: 1.4em;
+    font-size: 20px;
+  }
+
+  h1 {
+    width: 648px;
+    height: 85px;
+    background: url(../assets/logo.png) no-repeat;
+    background-size: 648px 85px;
+    text-indent: -9009em;
+    margin: 0 auto;
+  }
+
+  em {
+    background-color: #fffeca;
+  }
+
+  footer {
+    @include clearfix;
+    font-size: 14px;
+    color: #999;
+    a {
+      color: #999;
+    }
+    .copyright {
+      float: left;
+    }
+    .footer-nav {
+      float: right;
+    }
+  }
+
+  /* Buttons */
+
+  input[type="submit"] {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    @include border-radius(5px);
+    @include gradient(#fcfcfd, #e4e7ee);
+    -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+    border: 1px solid #959aa5;
+    cursor: pointer;
+    color: #606877;
+    height: 32px;
+    display: inline-block;
+    padding: 5px 8px;
+    vertical-align: top;
+    text-shadow: 0 1px 0 #fff;
+    font-family: $base-font;
+    font-size: 16px;
+    margin: 0;
+    &:hover, &:focus {
+      @include gradient(#fcfcfd, #f0f2f6);
+    }
+    &:active {
+      -webkit-box-shadow: 0 0 1px rgba(0, 0, 0, 0.2);
+      -moz-box-shadow: 0 0 1px rgba(0, 0, 0, 0.2);
+      box-shadow: 0 0 1px rgba(0, 0, 0, 0.2);
+      background: #f0f2f6;
+      position: relative;
+      top: 1px;
+    }
+  }
+}
+
+/* Media Queries */
+
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (-o-min-device-pixel-ratio: 3/2), only screen and (min--moz-device-pixel-ratio: 1.5), only screen and (min-device-pixel-ratio: 1.5) {
+  body.home {
+    h1 {
+      background-image: url(../assets/logo@2x.png);
+    }
+  }
+}
+
+@media all and (max-width: 640px) {
+  body.home {
+    header {
+      padding: 98px 0;
+      margin-bottom: 30px;
+    }
+    
+    section, footer {
+      width: 300px;
+    }
+    
+    h1 {
+      width: 242px;
+      height: 66px;
+      background-image: url(../assets/logo-narrow.png);
+      background-size: 242px 66px;
+    }
+
+    input[type="submit"] {
+      width: 100%;
+    }
+
+    footer {
+      .copyright {
+        display: none;
+      }
+      .footer-nav {
+        float: none;
+        text-align: center;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 640px) and (-webkit-min-device-pixel-ratio: 1.5), only screen and (-o-min-device-pixel-ratio: 3/2), only screen and (min--moz-device-pixel-ratio: 1.5), only screen and (min-device-pixel-ratio: 1.5) {
+  body.home {
+    h1 {
+      background-image: url(../assets/logo-narrow@2x.png);
+    }
+  }
+}

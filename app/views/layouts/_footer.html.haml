@@ -1,2 +1,11 @@
 %footer
-  - # footer content
+  .copyright= raw(t 'footer.copyright')
+  .footer-nav
+    = link_to "Home", root_url
+    \/
+    = link_to "Mallow", "http://mallowapp.com"
+    \/
+    = link_to "Blog", "http://blog.chocol.it"
+    \/
+    = mail_to("chris@chocol.it", "Contact", :encode => "hex")
+
