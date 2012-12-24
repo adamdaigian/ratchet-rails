@@ -136,6 +136,7 @@ body.home {
     text-shadow: 0 1px 0 #fff;
     font-family: $base-font;
     font-size: 16px;
+    font-weight: 300;
     margin: 0;
     &:hover, &:focus {
       @include gradient(#fcfcfd, #f0f2f6);
