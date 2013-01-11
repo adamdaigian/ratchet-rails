@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 # Foundation
-gem 'rails', '3.2.8'
+gem 'rails', '3.2.11'
 
 # Views
 gem 'haml', '~> 3.1.6'
