@@ -1,5 +1,5 @@
 ratchet-rails
--------------
+=============
 
 Build mobile app prototypes with [Ratchet](https://github.com/maker/ratchet) + Ruby on Rails.
 
